@@ -21,15 +21,16 @@
       
 <div *ngFor="let io of datos">   
       <div class="p-float"><div class="p-float-in">
-        <img class="p-img" src={{io.imageUrl}}/>
+        <img class="p-img" [src]=io.imageUrl>
         <button class="p-add">{{io.maximumCredits}} CREDITS</button>
         <div class="p-name">{{io.name}}</div>        
         <div class="p-desc">{{io.provider.name}}</div>
         <div class="p-price">${{io.price}}
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
+          <div class="ratings">
+            <div class="empty-stars"></div>
+            
+          <div class="full-stars" [style]=io.rating></div>
+          </div>
         </div>
       </div>
       </div></div>
@@ -38,6 +39,9 @@
       
       
     </div>
+    
+    
+    
   </body>
 </html>
    
