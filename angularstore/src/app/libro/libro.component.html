@@ -1,2 +1,109 @@
-<p>libro works!</p>
-<h1>si sirve</h1>
+<!DOCTYPE html>
+
+<html>
+  <head>
+   
+ 
+  
+  </head>
+  <body>
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    <div class="topnav">
+     
+      <input type="text" placeholder="Search..">
+    </div>
+
+    <div id="p-float">
+      <div class="p-float"><div class="p-float-in">
+        
+        <img class="p-img" src="pic-1.jpg"/>
+        <button class="p-add">3 CREDITS</button>
+        <div class="p-name">Item A</div>
+        
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="p-price">$99.99
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+      </div>
+    </div>
+    </div>
+      <div class="p-float"><div class="p-float-in">
+        <img class="p-img" src="pic-2.jpg"/>
+        <button class="p-add">3 CREDITS</button>
+        <div class="p-name">Item B</div>
+       
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="p-price">$88.88 <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </div>
+      </div></div>
+      <div class="p-float"><div class="p-float-in">
+        <img class="p-img" src="pic-3.jpg"/>
+        <button class="p-add">3 CREDITS</button>
+        <div class="p-name">Item C</div>
+        
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="p-price">$77.77 <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </div>
+        
+      </div></div>
+      <div class="p-float"><div class="p-float-in">
+        <img class="p-img" src="pic-4.jpg"/>
+        <button class="p-add">3 CREDITS</button>
+        <div class="p-name">Item D</div>
+        
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="p-price">$11.11 <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </div>
+       
+      </div></div>
+      <div class="p-float"><div class="p-float-in">
+        <img class="p-img" src="pic-5.jpg"/>
+        <button class="p-add">3 CREDITS</button>
+        <div class="p-name">Item E</div>
+        
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="p-price">$22.22 <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </div>
+        
+      </div></div>
+      <div class="p-float"><div class="p-float-in">
+        <img class="p-img" src="pic-6.jpg"/>
+        <button class="p-add">3 CREDITS</button>
+        <div class="p-name">Item F</div>
+        
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="p-price">$33.33 <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </div>
+      
+      </div></div>
+    </div>
+
+    <div *ngFor="let item of items">{{item}}</div>
+
+  </body>
+</html>

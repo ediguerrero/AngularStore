@@ -1,19 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Key } from 'protractor';
 
 @Component({
   selector: 'app-libro',
   templateUrl: './libro.component.html',
   styleUrls: ['./libro.component.css']
 })
+
 export class LibroComponent implements OnInit {
   
-  url = `http://echo.jsontest.com/key/value/one/two`;
-  items = []
+  
+  url = `/api/courses?orderBy=popularity+desc&expand=provider&limit=24&profession=&subjectAreaCode=&state=&provider=&name=`;
+items=[];
   
   constructor(private http: HttpClient) {
     this.http.get(this.url).toPromise().then(data => {
       console.log(data);
+      for(let key in data)
+      if (data.hasOwnProperty(key)) 
+      this.items.push(data[key]);
+
+    
     });
    }
 
