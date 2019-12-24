@@ -3,14 +3,58 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-   
- 
   
-  </head>
   <body>
- 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <section class="container">
+      
+        
+        <p>show me courses for</p>
+        <div class="dropdown">
+          <button class="dropbtn">All professions</button>
+          <div class="dropdown-content">
+          
+          <a href="https://www.google.com">Google</a>
+          <a href="https://www.facebook.com">Facebook</a>
+          <a href="https://www.youtube.com">YouTube</a>
+          
+          </div>
+          </div>
+          <p>in</p>
+          <div class="dropdown">
+            <button class="dropbtn">All states</button>
+            <div class="dropdown-content">
+            
+            <a href="https://www.google.com">Google</a>
+            <a href="https://www.facebook.com">Facebook</a>
+            <a href="https://www.youtube.com">YouTube</a>
+            
+            </div>
+            </div>
+            <p>classified as</p>
+            <div class="dropdown">
+              <button class="dropbtn">+</button>
+              <div class="dropdown-content">
+              
+              <a href="https://www.google.com">Google</a>
+              <a href="https://www.facebook.com">Facebook</a>
+              <a href="https://www.youtube.com">YouTube</a>
+              
+              </div>
+              </div>
+              <p>sorted by</p>
+              <div class="dropdown">
+                <button class="dropbtn">popularity</button>
+                <div class="dropdown-content">
+                
+                <a href="https://www.google.com">Google</a>
+                <a href="https://www.facebook.com">Facebook</a>
+                <a href="https://www.youtube.com">YouTube</a>
+                
+                </div>
+                </div>
+  </section>
+
+    
    
     <div class="topnav">
      
@@ -21,15 +65,15 @@
       
 <div *ngFor="let io of datos">   
       <div class="p-float"><div class="p-float-in">
-        <img class="p-img" [src]=io.imageUrl>
+        <img class="p-img" src="www.test.mytablemesa.com{{io.imageUrl}}">
         <button class="p-add">{{io.maximumCredits}} CREDITS</button>
         <div class="p-name">{{io.name}}</div>        
         <div class="p-desc">{{io.provider.name}}</div>
-        <div class="p-price">${{io.price}}
+        <div class="p-price"><h3>${{io.price}}</h3>
           <div class="ratings">
             <div class="empty-stars"></div>
-            
-          <div class="full-stars" [style]=io.rating></div>
+            <h1>{{io.rating}}</h1>
+          <div class="full-stars" style="width:{{io.rating}}%"></div>
           </div>
         </div>
       </div>
