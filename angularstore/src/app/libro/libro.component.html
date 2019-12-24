@@ -57,16 +57,15 @@
     
    
     <div class="topnav">
-     
-      <input type="text" placeholder="Search..">
+        
     </div>
-    <form (submit)="onSubmit(player.value)">
-      <input #player placeholder="player name">
+    <form (submit)="onSubmit(name.value)">
+      <input #name placeholder="Search..">
     <button type="submit">buscar</button>
   <h1>{{mensa}}</h1> 
+ <h1>{{encontrado.name}}</h1> 
   </form>
-  <button (click)="onClickMe()">Click me!</button>
-   <h1>{{clickMessage}}</h1> 
+
    
   
       

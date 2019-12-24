@@ -14,17 +14,9 @@ export class LibroComponent implements OnInit {
   
   url = `/api/courses?orderBy=popularity+desc&expand=provider&limit=24&profession=&subjectAreaCode=&state=&provider=&name=`;
 datos=[];
+encontrado=[];
 mensa='';
-onSubmit(playerName: string) {
-  console.log(playerName)
-  this.mensa=playerName;
-}
 
-clickMessage = '';
-
-  onClickMe() {
-    this.clickMessage = 'You are my hero!';
-  }
   constructor(private http: HttpClient) {
    
     this.http.get(this.url).toPromise().then(data => {
@@ -43,6 +35,17 @@ this.datos.push(data.items[key]);
   ngOnInit() {
     
   }
+  onSubmit(name: String) {
+    for(let key in this.datos){
+if(datos[key]==name){
+  console.log(datos[key]);
+this.encontrado.push(this.datos[key]);}}
 
+    
+  }
+    
+    
+   
+  }
   
-}
+
