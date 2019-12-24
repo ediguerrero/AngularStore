@@ -4,7 +4,7 @@
 
 <html>
   
-  <body>
+  <body   ng-controller="AppController">
     <section class="container">
       
         
@@ -60,6 +60,16 @@
      
       <input type="text" placeholder="Search..">
     </div>
+    <form (submit)="onSubmit(player.value)">
+      <input #player placeholder="player name">
+    <button type="submit">buscar</button>
+  <h1>{{mensa}}</h1> 
+  </form>
+  <button (click)="onClickMe()">Click me!</button>
+   <h1>{{clickMessage}}</h1> 
+   
+  
+      
 
     <div id="p-float">
       
