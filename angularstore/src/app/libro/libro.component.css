@@ -149,8 +149,14 @@
   padding-bottom: 50px;
   padding-top: 20px;
   padding-left: 15px;
+  
+  
 }
 
-.form-control {
-  box-shadow: 0 10px 40px 0 #B0C1D9;
+.form-control{
+  box-shadow: 0 20px 40px 0 #B0C1D9;
+   
 } 
+.search-results {
+  height: 100%;
+}

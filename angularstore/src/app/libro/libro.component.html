@@ -60,7 +60,7 @@
       <div class="search-hero">
         <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search all courses">
       </div>
-      <div *ngFor="let io of datos | filter:searchText">
+      <div *ngFor="let io of datos[8] | filter:searchText">
         <div class="p-float"><div class="p-float-in">
           <img class="p-img" src="https://www.rd.com/wp-content/uploads/2017/10/This-Is-How-Long-It-Takes-To-Read-The-Whole-Dictionary_509582812-Billion-Photos_FB-e1574101045824.jpg">
           <button class="p-add">{{io.maximumCredits}} CREDITS</button>
@@ -80,9 +80,23 @@
     </div>
     
     
-
+    <div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollUpDistance]="1.5"
+    [infiniteScrollDistance]="2"  
+       strategy="scrollingToBoth"
+    (scrolled)="onScrollDown()"
+    (scrolledUp)="onUp()"
+    
+    >
+    <h3 class="news"
+    *ngFor="let item of news">
+  {{item.title}}
+  </h3>
+    <h1>{{mensa}}</h1>
+  ></div>
    
-     
     
   </body>
 </html>
