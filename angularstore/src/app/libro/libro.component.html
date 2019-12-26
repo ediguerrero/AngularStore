@@ -57,43 +57,32 @@
     
    
     <div class="topnav">
-        
-    </div>
-    <form (submit)="onSubmit(name.value)">
-      <input #name placeholder="Search..">
-    <button type="submit">buscar</button>
-  <h1>{{mensa}}</h1> 
- <h1>{{encontrado.name}}</h1> 
-  </form>
-
-   
-  
-      
-
-    <div id="p-float">
-      
-<div *ngFor="let io of datos">   
-      <div class="p-float"><div class="p-float-in">
-        <img class="p-img" src="www.test.mytablemesa.com{{io.imageUrl}}">
-        <button class="p-add">{{io.maximumCredits}} CREDITS</button>
-        <div class="p-name">{{io.name}}</div>        
-        <div class="p-desc">{{io.provider.name}}</div>
-        <div class="p-price"><h3>${{io.price}}</h3>
-          <div class="ratings">
-            <div class="empty-stars"></div>
-            <h1>{{io.rating}}</h1>
-          <div class="full-stars" style="width:{{io.rating}}%"></div>
+      <div class="search-hero">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search all courses">
+      </div>
+      <div *ngFor="let io of datos | filter:searchText">
+        <div class="p-float"><div class="p-float-in">
+          <img class="p-img" src="https://www.rd.com/wp-content/uploads/2017/10/This-Is-How-Long-It-Takes-To-Read-The-Whole-Dictionary_509582812-Billion-Photos_FB-e1574101045824.jpg">
+          <button class="p-add">{{io.maximumCredits}} CREDITS</button>
+          <div class="p-name">{{io.name}}</div>        
+          <div class="p-desc">{{io.provider.name}}</div>
+          <div class="p-price"><h3>${{io.price}}</h3>
+            <div class="ratings">
+              <div class="empty-stars"></div>
+              <h1>{{io.rating}}</h1>
+            <div class="full-stars" style="width:{{io.rating}}%"></div>
+            </div>
           </div>
         </div>
+        </div>
       </div>
-      </div></div>
-    
-      
-      
-      
+
     </div>
     
     
+
+   
+     
     
   </body>
 </html>

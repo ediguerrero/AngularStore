@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Key } from 'protractor';
 import { OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -16,18 +15,19 @@ export class LibroComponent implements OnInit {
 datos=[];
 encontrado=[];
 mensa='';
+searchText;
 
   constructor(private http: HttpClient) {
    
     this.http.get(this.url).toPromise().then(data => {
       
-      console.log(data.items);     
+      
 for(let key in data.items)
 this.datos.push(data.items[key]);
     });
 
     
-
+    
    }
 
  
@@ -35,15 +35,7 @@ this.datos.push(data.items[key]);
   ngOnInit() {
     
   }
-  onSubmit(name: String) {
-    for(let key in this.datos){
-if(datos[key]==name){
-  console.log(datos[key]);
-this.encontrado.push(this.datos[key]);}}
 
-    
-  }
-    
     
    
   }
