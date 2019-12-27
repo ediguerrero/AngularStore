@@ -11,10 +11,8 @@ import { share, finalize } from 'rxjs/operators';
 })
 
 export class LibroComponent implements OnInit {
-  
-  
-  url = `/api/courses?limit=24&offset=24&orderBy=popularity%20desc&expand=provider&customPageId=0"`;
-datos=[];
+   
+ 
 encontrado=[];
 mensa='';
 searchText;
@@ -27,18 +25,7 @@ public news: Array<any> = [];
 
   private request$: Observable<any>;
 
-  constructor(private http: HttpClient) {
-  
-    this.http.get(this.url).toPromise().then(data => {
-      
-      
-for(let key in data)
-this.datos.push(data[key]);
-    });
-
-    console.log(this.datos);
-    
-   }
+  constructor(private http: HttpClient) { }
 
  
 
@@ -46,7 +33,7 @@ this.datos.push(data[key]);
     this.getNews(this.currentPage)
     .pipe(finalize(() => this.onFinalize()))
     .subscribe((news) => {
-      this.currentPage++;
+      this.currentPage=this.currentPage+24;
       this.news = this.news.concat(news.items);
       console.log('el init');
       console.log(this.news);
@@ -65,7 +52,7 @@ this.getNews(this.currentPage)
         
         console.log("nueva new abajo")
         console.log(this.news);
-        this.currentPage++;
+        this.currentPage=this.currentPage+24;
         this.news = this.news.concat(news.items);
         console.log("el current="+this.currentPage);
       });
@@ -81,8 +68,8 @@ this.getNews(this.currentPage)
     .subscribe((news) => {
       console.log("nueva new arriba")
       console.log(this.news);
-      this.currentPage++;
-      this.news = news.concat(news.items);
+      this.currentPage=this.currentPage+24;
+      this.news = this.news.concat(news.items);
       console.log("el current="+this.currentPage);
     });
 
@@ -91,6 +78,7 @@ this.getNews(this.currentPage)
     if (this.request$) {
       return this.request$;
     } else {
+      console.log("pagina="+page);
       this.request$ = this.http.get(`/api/courses?limit=24&offset=${page}&orderBy=popularity%20desc&expand=provider&customPageId=0`).pipe(share());
     console.log(this.request$);
       return this.request$;
