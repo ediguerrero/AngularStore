@@ -1,6 +1,6 @@
 {
     "/api/*": {
-      "target": "https://test.mytablemesa.com/",
+      "target": "https://next.mytablemesa.com/",
       "secure": false,
       "changeOrigin": true
     }

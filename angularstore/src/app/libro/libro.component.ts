@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { share, finalize } from 'rxjs/operators';
 })
 
 export class LibroComponent implements OnInit {
-  @ViewChild('nameInput') nameInput: ElementRef;
+  
   
   url = `/api/courses?limit=24&offset=24&orderBy=popularity%20desc&expand=provider&customPageId=0"`;
 datos=[];
