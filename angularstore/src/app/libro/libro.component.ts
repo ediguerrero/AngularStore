@@ -1,8 +1,9 @@
 import { Component} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { OnInit, ViewChild, ElementRef } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { share, finalize } from 'rxjs/operators';
+
 @Component({
   selector: 'app-libro',
   templateUrl: './libro.component.html',
@@ -22,7 +23,7 @@ direction = '';
 array = [];
 public news: Array<any> = [];
 
-  private currentPage = 1;
+  private currentPage = 0;
 
   private request$: Observable<any>;
 
@@ -46,37 +47,52 @@ this.datos.push(data[key]);
     .pipe(finalize(() => this.onFinalize()))
     .subscribe((news) => {
       this.currentPage++;
-      this.news = this.news.concat(news);
+      this.news = this.news.concat(news.items);
+      console.log('el init');
+      console.log(this.news);
+      console.log("el current="+this.currentPage);
+      console.log('fin init');
     });
   }
   onScrollDown () {
     console.log('scrolled down!!');
 this.mensa="abajo";
+
 this.getNews(this.currentPage)
+
       .pipe(finalize(() => this.onFinalize()))
       .subscribe((news) => {
+        
+        console.log("nueva new abajo")
+        console.log(this.news);
         this.currentPage++;
-        this.news = this.news.concat(news);
+        this.news = this.news.concat(news.items);
+        console.log("el current="+this.currentPage);
       });
    
   }
   
   onUp() {
     console.log('scrolled up!');
+    console.log("el current="+this.currentPage);
     this.mensa="arriba";
     this.getNews(this.currentPage)
     .pipe(finalize(() => this.onFinalize()))
     .subscribe((news) => {
+      console.log("nueva new arriba")
+      console.log(this.news);
       this.currentPage++;
-      this.news = news.concat(this.news);
+      this.news = news.concat(news.items);
+      console.log("el current="+this.currentPage);
     });
 
   }
-  private getNews(page: number = 1): Observable<any> {
+  private getNews(page: number = 0): Observable<any> {
     if (this.request$) {
       return this.request$;
     } else {
-      this.request$ = this.http.get(`https://node-hnapi.herokuapp.com/news?page=${page}`).pipe(share());
+      this.request$ = this.http.get(`/api/courses?limit=24&offset=${page}&orderBy=popularity%20desc&expand=provider&customPageId=0`).pipe(share());
+    console.log(this.request$);
       return this.request$;
     }
   }
