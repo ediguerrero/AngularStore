@@ -11,14 +11,8 @@ import { share, finalize } from 'rxjs/operators';
 })
 
 export class LibroComponent implements OnInit {
-   
- 
-encontrado=[];
 mensa='';
 searchText;
-sum = 100;
-direction = '';
-array = [];
 public news: Array<any> = [];
 
   private currentPage = 0;
